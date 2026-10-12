@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <!-- This line makes the page work on mobile screens -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>bookmytrip.com</title>
+
+  <!-- Font Awesome (for icons) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/js/all.min.js"></script>
+
+  <link rel="stylesheet" href="task.css">
+</head>
+<body>
+
+<div class="wrapper">
+
+  <!--   1. header   -->
+  <div class="header">
+    <img class="headerlogo" src="images/logo.jpeg" alt="logo">
+
+    <div class="support">
+      <i class="fa-solid fa-phone support-icon"></i>
+      <div>
+        <p>Call 24/7 Support</p>
+        <p><b>+91 (44) 1234 5678</b></p>
+      </div>
+    </div>
+
+    <div class="search-box">
+      <input type="text" placeholder="Search entire website here">
+    </div>
+  </div>
+
+  <!--   2. menu bar   -->
+  <div class="menu">
+
+    <!-- Three-line button (only visible on mobile) -->
+    <button class="menu-toggle" id="menuToggle" type="button">
+      <i class="fa-solid fa-bars"></i>
+    </button>
+
+    <ul class="menu-links" id="menuLinks">
+      <li><a href="#" id="hotelsLink">Hotels <i class="fa-solid fa-caret-down"></i></a></li>
+      <li><a href="#">Flights</a></li>
+      <li><a href="#">Vacations</a></li>
+      <li><a href="#">Hot Deals</a></li>
+      <li><a href="#">Travel Guides</a></li>
+      <li><a href="#">Blogs</a></li>
+    </ul>
+
+    <div class="menu-buttons">
+      <a href="#" class="yellow-btn">SIGN UP</a>
+      <a href="#" class="yellow-btn">MY ACCOUNT</a>
+    </div>
+  </div>
+
+  <!--   3. hero (big image)   -->
+  <div class="hero">
+
+    <!-- Big background image -->
+    <img src="images/image_1.jpg" alt="Hotel room" class="hero-img">
+
+    <!-- Dropdown list (opens when you click "Hotels" in the menu) -->
+    <ul class="dropdown" id="dropdown">
+      <li><a href="#" data-filter="india">Hotels in India</a></li>
+      <li><a href="#" data-filter="international">International Hotels</a></li>
+      <li><a href="#" data-filter="hostels">International Hostels</a></li>
+      <li><a href="#" data-filter="asia">Popular Hotels in Asia</a></li>
+      <li><a href="#" data-filter="europe">Popular Hotels in Europe</a></li>
+      <li><a href="#" data-filter="activities">Activities</a></li>
+      <li><a href="#" data-filter="deals">Hotel Deals of the Week</a></li>
+    </ul>
+
+    <!-- Blue text box + price -->
+    <div class="hero-info">
+      <div class="hero-text">
+        <h2>Paris Hilton Hotel, Mumbai, India</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+      </div>
+
+      <div class="hero-price">
+        <b>$1200</b> Inclusive of food, dinner
+      </div>
+    </div>
+
+    <!-- Booking form at the bottom -->
+    <div class="booking" id="booking">
+      <div class="booking-title">Book Your Trip</div>
+
+      <div class="booking-form" id="bookingForm">
+
+        <div class="box">
+          <label for="what">What?</label>
+          <select id="what">
+            <option value="Hotel">Hotel</option>
+            <option value="Flight">Flight</option>
+            <option value="Vacation">Vacation</option>
+          </select>
+        </div>
+
+        <div class="box">
+          <label for="where">Where?</label>
+          <select id="where">
+            <option value="">Location</option>
+            <option value="Mumbai">Mumbai</option>
+            <option value="Zurich">Zurich</option>
+            <option value="Melbourne">Melbourne</option>
+          </select>
+        </div>
+
+        <div class="box">
+          <label for="when">When?</label>
+          <input type="date" id="when">
+        </div>
+
+        <div class="box">
+          <label for="rooms">Who?</label>
+          <select id="rooms">
+            <option value="">Rooms</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+          </select>
+        </div>
+
+        <div class="box">
+          <label for="adults">&nbsp;</label>
+          <select id="adults">
+            <option value="">Adults</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+          </select>
+        </div>
+
+        <div class="box">
+          <label for="children">&nbsp;</label>
+          <select id="children">
+            <option value="">Children</option>
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+          </select>
+        </div>
+
+        <button class="search-btn" id="searchBtn" type="button">SEARCH</button>
+      </div>
+    </div>
+
+  </div>
+
+  <!--   4. main content (grey area)   -->
+  <div class="content">
+
+    <!-- Popular Hotels -->
+    <div id="hotelsSection">n
+
+      <!-- Search result message (hidden until you search) -->
+      <div class="result-box" id="resultBox">
+        <span id="resultText"></span>
+        <button type="button" class="show-all-btn" id="showAllBtn">Show all hotels</button>
+      </div>
+
+      <h3 class="heading">Popular Hotels</h3>
+
+      <div class="hotels">
+
+        <div class="hotel-card" data-city="Mumbai" data-country="India" data-region="asia">
+          <img src="images/image_2.jpg" alt="Hotel Tajmahal Palace">
+          <div class="hotel-info">
+            <div>
+              <h4>Hotel Tajmahal Palace</h4>
+              <p>Mumbai, India</p>
+            </div>
+            <span class="price">$ 2000</span>
+          </div>
+        </div>
+
+        <div class="hotel-card" data-city="Zurich" data-country="Switzerland" data-region="europe">
+          <img src="images/image_3.jpg" alt="Mont Blanc">
+          <div class="hotel-info">
+            <div>
+              <h4>Mont Blanc</h4>
+              <p>Zurich, Switzerland</p>
+            </div>
+            <span class="price">$ 3200</span>
+          </div>
+        </div>
+
+        <div class="hotel-card" data-city="Melbourne" data-country="Australia" data-region="oceania">
+          <img src="images/image_4.jpg" alt="Hotel Marlott">
+          <div class="hotel-info">
+            <div>
+              <h4>Hotel Marlott</h4>
+              <p>Melbourne, Australia</p>
+            </div>
+            <span class="price">$ 1200</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Shown when no hotel matches -->
+      <div class="no-hotels" id="noHotels">No hotels found. Please try another search.</div>
+    </div>
+
+    <!-- Hot Deals -->
+    <div id="dealsSection">
+      <h3 class="heading">Hot Deals</h3>
+
+      <div class="deals">
+
+        <div class="deal">
+          <img src="images/image_5.jpg" alt="Paris Eurostar Breaks">
+          <div class="deal-text">
+            <p class="small">From $350</p>
+            <h2>PARIS EUROSTAR BREAKS</h2>
+            <p class="small">CURABITUR FRINGILLA MAURIS INTERDUM NEC MAGNA</p>
+          </div>
+        </div>
+
+        <div class="deal">
+          <img src="images/image_6.jpg" alt="Travel to Hongkong">
+          <div class="deal-text">
+            <h2>TRAVEL TO HONGKONG</h2>
+            <p class="small">CURABITUR FRINGILLA MAURIS INTERDUM NEC MAGNA</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Latest Blogs -->
+    <div class="blogs">
+      <b>Latest Blogs</b>
+      <a href="#">Best places to visit in India</a>
+    </div>
+
+  </div>
+
+  <!--  footer  -->
+  <div class="footer">
+
+    <div class="footer-box">
+      <h4>Company</h4>
+      <a href="#">About the company</a>
+      <a href="#">Terms and Conditions</a>
+      <a href="#">Privacy Policy</a>
+      <a href="#">Career</a>
+    </div>
+
+    <div class="footer-box">
+      <h4>Customer Support</h4>
+      <a href="#">Contact</a>
+      <a href="#">FAQ</a>
+    </div>
+
+    <div class="footer-box">
+      <h4>Follow us</h4>
+      <a href="#">Facebook</a>
+      <a href="#">Twitter</a>
+      <a href="#">YouTube</a>
+    </div>
+
+    <div class="footer-box wide">
+      <h4>Don't miss our deals and offers</h4>
+      <div class="subscribe">
+        <input type="text" placeholder="Enter your email id">
+        <button type="button">SUBSCRIBE</button>
+      </div>
+    </div>
+
+  </div>
+
+  <p class="copyright">copyright(c) 2013, All rights reserved</p>
+
+</div>
+
+ 
+<script src="task.js"></script>
+
+</body>
+</html>
